@@ -1,0 +1,11 @@
+<div class="chessGlobal">
+    <h2>Mes coups aux èchecs</h2>
+    <ul class="echec">
+        <li *ngFor="let coup of allCoup">
+            <button type="button">
+                <span class="badge">{{coup.id}}</span>
+                <span class="name">{{coup.name}}</span>
+            </button>
+        </li>
+    </ul>
+</div>

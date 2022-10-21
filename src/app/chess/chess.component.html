@@ -1,11 +1,44 @@
-<div class="chessGlobal">
-    <h2>Mes coups aux èchecs</h2>
-    <ul class="echec">
-        <li *ngFor="let coup of allCoup">
-            <button type="button">
-                <span class="badge">{{coup.id}}</span>
-                <span class="name">{{coup.name}}</span>
-            </button>
-        </li>
-    </ul>
+<div class="boutonListes d-flex justify-content-center">
+    <button type="button" (click)="displayAddCoup()" class="btn btn-outline-dark">Ajouter coup</button>
+    <button type="button" (click)="displayList()" class="btn btn-outline-dark">Listes des coups</button>
 </div>
+<div *ngIf="viewList" class="row justify-content-md-center border border-dark rounded">
+    <div class="col-4">
+      <div id="list-example" class="list-group">
+        <span *ngFor="let coup of allCoups" class="coupName">
+            <a class="list-group-item list-group-item-action" [href]="'#list-item-'+ coup.id">{{coup.name}}</a>
+        </span>
+      </div>
+    </div>
+    <div class="col-8">
+      <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+        <span *ngFor="let coup of allCoups">
+            <h4 [id]="'list-item-'+ coup.id">{{coup.name}}</h4>
+            <p>{{coup.description}}</p>
+        </span>
+      </div>
+    </div>
+    <p *ngIf="this.viewValidatorAdd" class="success">
+        <ngb-alert type='success'>
+          <strong>Génial !! Nouveau coup dans la liste</strong>
+        </ngb-alert>
+    </p>
+</div>
+
+<div *ngIf="viewAddOnList" class="row justify-content-md-center border border-dark rounded">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nom du coup</label>
+        <input [(ngModel)]="nameModel" class="form-control" name="name" id="exampleFormControlInput1" #name="ngModel" placeholder="..." required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea [(ngModel)]="descriptionModel" class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" #name="ngModel" placeholder="..." required></textarea>
+    </div>
+    <button type="button" class="btn btn-outline-success" (click)="addCoup()">Ajouter</button>
+    <p *ngIf="this.viewError" class="danger">
+        <ngb-alert type='danger'>
+          <strong>Vérifier le nom ou la description</strong>
+        </ngb-alert>
+    </p>
+</div>
+

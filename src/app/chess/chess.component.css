@@ -1,3 +1,30 @@
-.chessGlobal{
-    text-align: center;
+.boutonListes {
+    padding: 10px;
+}
+.row {
+    max-width: 100%;
+    margin-left:30%;
+    margin-right:30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.list-group {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+}
+.scrollspy-example {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+}
+.btn-outline-success {
+    max-width: 30%;
+}
+.success {
+    padding: 5px;
+}
+.danger {
+    padding: 5px;
 }

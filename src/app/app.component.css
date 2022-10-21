@@ -1,9 +1,9 @@
 .title {
     text-align: center;
-    background-color: black;
+    background-color: #8509ff;
     color: white;
     border-radius: 2em;
-    margin-left: 700px;
-    margin-right: 700px;
-    margin-top: 0px; 
+    margin: 10px;
+    padding: 10px;
+    max-width: 100%;
 }
